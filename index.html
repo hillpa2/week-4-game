@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<title>CHRYSTAL COLLECTOR YO!</title>
+	<link rel="stylesheet" type="text/css" href="assets/style/style.css">
+
+	<link rel="icon" href="assets/image/01favicon.ico" type="image/x-icon">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+</head>
+
+<body>
+<div id="UP_INT">
+	<div id="UP_NAME">SAMUEL HILL</div>
+	<div id="UP_APC">
+		CHRYSTAL COLLECTOR
+	</div>
+</div>
+
+<div id="AM" class="b-y">
+	<h1 id="START">PRESS ANY BUTTON TO START OR PLAY</h1>
+		<button class="button ruby"><img src="assets/image/Ruby.jpg"></button>
+		<button class="button sapphire"><img src="assets/image/Sapphire.jpg"></button>
+		<button class="button emerald"><img src="assets/image/Emerald.jpg"></button>
+		<button class="button quartz"><img src="assets/image/Quartz.jpg"></button>
+	<div id="HTMLOUT">
+	</div>
+</div>
+
+<footer>@copyright Samuel Hill</footer>
+
+<script type="text/javascript">
+		//initializer
+		var goal=20+Math.floor((Math.random()*(100)))
+		var user=0
+		var wins=0
+		var losses=0
+
+		var ruby=1+Math.floor((Math.random()*(11)))
+		var sapphire=1+Math.floor((Math.random()*(11)))
+		var emerald=1+Math.floor((Math.random()*(11)))
+		var quartz=1+Math.floor((Math.random()*(11)))
+		//end initializer
+
+	$(document).ready(function() {
+		
+		
+		//user modifyers
+		$(".ruby").on("click", function() {
+        	user+=ruby;
+    	});
+		
+		$(".sapphire").on("click", function() {
+        	user+=sapphire;
+    	});
+
+		$(".emerald").on("click", function() {
+        	user+=emerald;
+    	});
+
+    	$(".quartz").on("click", function() {
+        	user+=quartz;
+    	});
+    	//end user modifyers
+
+		//for button push
+		$(".button").on("click", function() {
+        	//clear output
+        	$("#HTMLOUT").empty();
+        	//end clear output
+
+			//if win
+			if (goal===user){
+				user=0;
+				
+				goal=20+Math.floor((Math.random()*(100)))
+				
+				ruby=1+Math.floor((Math.random()*(11)))
+				sapphire=1+Math.floor((Math.random()*(11)))
+				emerald=1+Math.floor((Math.random()*(11)))
+				quartz=1+Math.floor((Math.random()*(11)))
+
+				wins++;
+			};
+			//end if win
+			
+			//if loss
+			if (goal<user){
+				user=0;
+				
+				goal=20+Math.floor((Math.random()*(100)))
+				
+				ruby=1+Math.floor((Math.random()*(11)))
+				sapphire=1+Math.floor((Math.random()*(11)))
+				emerald=1+Math.floor((Math.random()*(11)))
+				quartz=1+Math.floor((Math.random()*(11)))
+
+				losses++;
+			};
+			//end if loss
+
+			//output
+        	$("#HTMLOUT").append("<h1><div>Goal: " + goal + "</div><div>You: " + user + "</div><div>Wins: " + wins + "</div><div>Losses: " + losses + "</div></h1>");
+        	//end output
+    	});
+		//end for button push
+
+
+
+	});
+</script>
+</body></html>
